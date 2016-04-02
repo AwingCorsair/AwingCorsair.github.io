@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Blog</title>
+  <title>极简天气开发日记Day02 | Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -84,7 +84,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -229,17 +229,12 @@
         <!-- // End height spacing helper -->
 
         <!-- ============================ END Hero Image =========================== -->
-      <!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/04/02/develop01-2/">极简天气开发日记Day02</a></h3>
-                    <span>
-                        <span class="post-meta">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
       <time datetime="2016-04-02T08:01:40.000Z" itemprop="datePublished">
           2016-04-02
       </time>
@@ -250,121 +245,52 @@
     
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        #Things to do第一天简单的构思了App的界面和功能，初步画出了主界面，今天正式的开始代码的编译。首先，在主包下新建以下几个包
-*activity：存放活动相关代码
+                <h1>极简天气开发日记Day02</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>#Things to do<br>第一天简单的构思了App的界面和功能，初步画出了主界面，今天正式的开始代码的编译。<br>首先，在主包下新建以下几个包</p>
+<pre><code>*activity：存放活动相关代码
 * db：    存放数据库相关代码
 * model：存放模型相关代码
 * service：存放服务相关代码
 * util：存放工具相关代码
 * location：存放定位相关代码
-程序入口打算使用ListView展示省市县列表供用户手动选择，同时使用百度提供的A
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/04/02/develop01-2/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/04/01/develop01-1/">极简天气开发日记Day01</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-04-01T10:39:11.000Z" itemprop="datePublished">
-          2016-04-01
-      </time>
-    
-    
-    | 
-    <a href='/tags/极简天气/'>极简天气</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        设计初衷  学习了一段时间Android后，迫切需要自己独立开发出一款APP来巩固自己所学的知识，目前市场上最火爆的墨迹天气在我眼里过于臃肿，基本的天气预报功能下面是繁杂的广告、新闻、拓展功能，让人感觉十分杂碎.     这次开发就已自己心目中最简洁明了的方式来开发一款天气APP。  由于知识量很少，所以在很多方面会用一些很幼稚的代码编写方式，嘛，就这样。
-功能设计
-基础信息
-实时气温、体感温度
-天气状况
+</code></pre><p>程序入口打算使用ListView展示省市县列表供用户手动选择，同时使用百度提供的<a href="http://lbsyun.baidu.com/index.php?title=android-locsdk" target="_blank" rel="external">Android定位SDK</a>来完成定位功能，如果用户设备未开启GPS和数据流量而导致定位失败，则弹出Toast提示用户手动选择城市。</p>
+<p>由于在和风API中未找到方便的省市县信息接口，所以选择了<a href="http://www.weather.com.cn/data/list3/city.xml" target="_blank" rel="external">中国天气</a>提供的省市县GSON信息（第一行代码中所使用的）</p>
+<p>##项目进度<br>如图所示：<br><img src="../../img/source/_posts/develop01-2.png" alt="develop01-2"></p>
+<p>完成了数据库操作的封装已经基础类的构造。</p>
+<p>##明日任务<br>完成省市县列表的编写以及GPS定位相关代码</p>
 
-
-扩展信息
-湿度
-最高气温、
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/04/01/develop01-1/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/03/30/hello-world/">Hello World</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-03-30T10:01:46.709Z" itemprop="datePublished">
-          2016-03-30
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new p
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/03/30/hello-world/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
-          
-          
-        </nav>
+    
+    
+    <a class="pull-right" href="/2016/04/01/develop01-1/">
+        极简天气开发日记Day01 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/04/02/develop01-2/" data-title="极简天气开发日记Day02" data-url="http://yoursite.com/2016/04/02/develop01-2/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"awingcorsair"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
     </div>
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+
 
       
 <!-- ============================ Footer =========================== -->
