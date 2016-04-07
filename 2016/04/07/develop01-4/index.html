@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>极简天气开发日记Day04 | Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Blog">
+    <meta name="author" content="AwingCorsair">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/开发日记/" class="animsition-link">开发日记<small>(4)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://www.google.com/" class="animsition-link">Interesting</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">None</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Blog</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/AwingCorsair" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/bg.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2>YOU'VE ENTERED A SIMPLE <span>ANDROID</span>BLOG, WELCOME.</h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>Develop And Improve。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-04-07T13:45:35.000Z" itemprop="datePublished">
+          2016-04-07
+      </time>
+    
+    
+    | 
+    <a href='/tags/极简天气/'>极简天气</a>
+    
+    
+</span>
+                <h1>极简天气开发日记Day04</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="Things-have-done"><a href="#Things-have-done" class="headerlink" title="Things have done"></a>Things have done</h1><p>用了两天时间，终于把困扰了我许久的多层树结构JSON数据的解析搞定了，对于每一层数据，都要对其关键字建立一个实体类，里面定义这一层数据的数据元素，并设置get方法，对于整个JSON数据串也要建立一个实体类存放所有关键字，如下图所示对所需元素建立好实体类</p>
+<p><img src="http://v2.freep.cn/3tb_16040722061517rs512293.png" alt="http://v2.freep.cn/3tb_16040722061517rs512293.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Now</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     *  "cond": &#123;&#125; //天气状况</span><br><span class="line">     * "fl": "30", //体感温度</span><br><span class="line">     * "hum": "20%", //相对湿度（%）</span><br><span class="line">     * "pcpn": "0.0", //降水量（mm）</span><br><span class="line">     * "pres": "1001", //气压</span><br><span class="line">     * "tmp": "32", //温度</span><br><span class="line">     * "vis": "10", //能见度（km）</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> Cond cond;</span><br><span class="line">    <span class="keyword">private</span> String fl;</span><br><span class="line">    <span class="keyword">private</span> String hum;</span><br><span class="line">    <span class="keyword">private</span> String tmp;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Cond <span class="title">getCond</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> cond;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCond</span><span class="params">(Cond cond)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.cond = cond;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getFl</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFl</span><span class="params">(String fl)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.fl = fl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> hum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHum</span><span class="params">(String hum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.hum = hum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getTmp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTmp</span><span class="params">(String tmp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.tmp = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以这个类为例，将实体元素定义好便可直接get到JSON数据中对应的属性值</p>
+<p>下面代码中，我在Utility类中建立了handleWeatherResponse方法处理JSON数据，由于需要解析的元素比较多，我按照日期进行了划分，并在调用数据储存方法时候分开处理减少出错率<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">handleWeatherResponse</span><span class="params">(Context context,String response)</span></span>&#123;</span><br><span class="line">    Gson gson=<span class="keyword">new</span> Gson();</span><br><span class="line">    Result result = gson.fromJson(response, Result.class);</span><br><span class="line">    List&lt;Weather&gt; weatherInfoList = result.getWeatherInfoList();</span><br><span class="line">    Weather weatherInfo = weatherInfoList.get(<span class="number">0</span>);</span><br><span class="line">    Aqi aqi=weatherInfo.getAqi();</span><br><span class="line">    Now now=weatherInfo.getNow();</span><br><span class="line">    Basic basic=weatherInfo.getBasic();</span><br><span class="line">    String cityName=basic.getCity();</span><br><span class="line">    String tempNow=now.getTmp();</span><br><span class="line">    String feelTemp=now.getFl();</span><br><span class="line">    String currentCondition=now.getCond().getTxt();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//initialize today</span></span><br><span class="line">    DailyForecast dailyforecast_today =weatherInfo.getDaily_forecast().get(<span class="number">0</span>);</span><br><span class="line">    Astro astro_today= dailyforecast_today.getAstro();</span><br><span class="line">    String sunRiseToday=astro_today.getSr();</span><br><span class="line">    String sunDownToday=astro_today.getSs();</span><br><span class="line">    String tempBelowToday= dailyforecast_today.getTmp().getMin();</span><br><span class="line">    String tempHighToday= dailyforecast_today.getTmp().getMax();</span><br><span class="line">    String wet= dailyforecast_today.getHum();</span><br><span class="line">    String windDir=dailyforecast_today.getWind().getDir();</span><br><span class="line">    String windSc=dailyforecast_today.getWind().getSc();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//initialize day1</span></span><br><span class="line">    DailyForecast dailyforecast_day1 =weatherInfo.getDaily_forecast().get(<span class="number">1</span>);</span><br><span class="line">    String timeDay1= dailyforecast_day1.getDate();</span><br><span class="line">    String conditionDay1= dailyforecast_day1.getCond().getTxt_d();</span><br><span class="line">    String tempBelowDay1= dailyforecast_day1.getTmp().getMin();</span><br><span class="line">    String tempHighDay1= dailyforecast_day1.getTmp().getMax();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//initialize day2</span></span><br><span class="line">    DailyForecast dailyforecast_day2 =weatherInfo.getDaily_forecast().get(<span class="number">2</span>);</span><br><span class="line">    String timeDay2= dailyforecast_day2.getDate();</span><br><span class="line">    String conditionDay2= dailyforecast_day2.getCond().getTxt_d();</span><br><span class="line">    String tempBelowDay2= dailyforecast_day2.getTmp().getMin();</span><br><span class="line">    String tempHighDay2= dailyforecast_day2.getTmp().getMax();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//initialize day3</span></span><br><span class="line">    DailyForecast dailyforecast_day3 =weatherInfo.getDaily_forecast().get(<span class="number">3</span>);</span><br><span class="line">    String timeDay3= dailyforecast_day3.getDate();</span><br><span class="line">    String conditionDay3= dailyforecast_day3.getCond().getTxt_d();</span><br><span class="line">    String tempBelowDay3= dailyforecast_day3.getTmp().getMin();</span><br><span class="line">    String tempHighDay3= dailyforecast_day3.getTmp().getMax();</span><br><span class="line"></span><br><span class="line">    saveWeatherInfoBasic(context, cityName, tempNow, feelTemp, currentCondition);</span><br><span class="line">    saveWeatherInfoToday(context,sunRiseToday,sunDownToday,tempBelowToday,tempHighToday,wet,windDir,windSc);</span><br><span class="line">    saveWeatherInfoDay1(context, timeDay1, conditionDay1, tempBelowDay1, tempHighDay1);</span><br><span class="line">    saveWeatherInfoDay2(context, timeDay2, conditionDay2, tempBelowDay2, tempHighDay2);</span><br><span class="line">    saveWeatherInfoDay3(context, timeDay3, conditionDay3, tempBelowDay3, tempHighDay3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对应的save方法很简单，使用SharePreferences来储存数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">saveWeatherInfoBasic</span><span class="params">(Context context,String cityName,String tempNow,String feelTemp,String currentCondition)</span></span>&#123;</span><br><span class="line">    SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();</span><br><span class="line">    editor.putString(<span class="string">"city_name"</span>, cityName);</span><br><span class="line">    editor.putString(<span class="string">"temp_now"</span>, tempNow);</span><br><span class="line">    editor.putString(<span class="string">"feel_temp"</span>, feelTemp);</span><br><span class="line">    editor.putString(<span class="string">"current_condition"</span>, currentCondition);</span><br><span class="line">    editor.commit();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样对应元素储存好后便可在ShowWeatherActivity中直接绑定窗体属性，只取部分代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showWeather</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(<span class="keyword">this</span>);</span><br><span class="line">    city_name.setText(sharedPreferences.getString(<span class="string">"city_name"</span>,<span class="string">"Null"</span>));</span><br><span class="line">    temp_now.setText(sharedPreferences.getString(<span class="string">"temp_now"</span>,<span class="string">"Null"</span>) + <span class="string">"℃"</span>);</span><br><span class="line">    feel_temp.setText(sharedPreferences.getString(<span class="string">"feel_temp"</span>,<span class="string">"Null"</span>) + <span class="string">"℃"</span>);</span><br><span class="line">    current_condition.setText(sharedPreferences.getString(<span class="string">"current_condition"</span>,<span class="string">"Null"</span>));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>至于获取JSON数据方法很简单，使用百度ApiStoreSDK直接调用即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">apiTest</span><span class="params">(String countyName)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ApiStoreSDK.init(getApplicationContext(), <span class="string">"*****************"</span>);</span><br><span class="line">    Parameters para = <span class="keyword">new</span> Parameters();</span><br><span class="line">    para.put(<span class="string">"city"</span>, countyName);</span><br><span class="line">    ApiStoreSDK.execute(<span class="string">"http://apis.baidu.com/heweather/weather/free"</span>,</span><br><span class="line">            ApiStoreSDK.GET,</span><br><span class="line">            para,</span><br><span class="line">            <span class="keyword">new</span> ApiCallBack() &#123;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(<span class="keyword">int</span> status, String responseString)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                    Log.d(<span class="string">"test"</span>, responseString);</span><br><span class="line">                    Utility.handleWeatherResponse(ShowWeatherActivity.<span class="keyword">this</span>, responseString);</span><br><span class="line">                    showWeather();</span><br><span class="line">                    Log.i(<span class="string">"test"</span>, <span class="string">"onSuccess"</span> + responseString);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    Log.i(<span class="string">"test"</span>, <span class="string">"onComplete"</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(<span class="keyword">int</span> status, String responseString, Exception e)</span> </span>&#123;</span><br><span class="line">                    Log.i(<span class="string">"test"</span>, <span class="string">"onError, status: "</span> + status);</span><br><span class="line">                    Log.i(<span class="string">"test"</span>, <span class="string">"errMsg: "</span> + (e == <span class="keyword">null</span> ? <span class="string">""</span> : e.getMessage()));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，完成这部分后的运行图如下，我更改了部分元素的设定</p>
+<p><img src="http://v2.freep.cn/3tb_160407220637rml4512293.jpg" alt="http://v2.freep.cn/3tb_160407220637rml4512293.jpg"></p>
+<h2 id="Things-to-do"><a href="#Things-to-do" class="headerlink" title="Things to do"></a>Things to do</h2><p>完善逻辑，重写Back事件以及实现下拉刷新功能</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/04/04/develop01-3/">
+        极简天气开发日记Day03 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/04/07/develop01-4/" data-title="极简天气开发日记Day04" data-url="http://yoursite.com/2016/04/07/develop01-4/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"awingcorsair"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By AwingCorsair. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/AwingCorsair" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
