@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>极简天气开发日记Day05 | Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Blog">
+    <meta name="author" content="AwingCorsair">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/开发日记/" class="animsition-link">开发日记<small>(5)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://www.google.com/" class="animsition-link">Interesting</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">None</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Blog</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/AwingCorsair" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/bg.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2>YOU'VE ENTERED A SIMPLE <span>ANDROID</span>BLOG, WELCOME.</h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>Develop And Improve。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-04-11T10:35:22.000Z" itemprop="datePublished">
+          2016-04-11
+      </time>
+    
+    
+    | 
+    <a href='/tags/极简天气/'>极简天气</a>
+    
+    
+</span>
+                <h1>极简天气开发日记Day05</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="Things-have-done"><a href="#Things-have-done" class="headerlink" title="Things have done"></a>Things have done</h1><p>与上一版相比，这次完善了界面图标，完成了通过定位直接显示天气，添加了侧滑栏，设置了切换城市功能，程序入口也不再每次都是选择城市界面，而是直接显示上次退出前选择的城市，最后增加了一些提示信息。</p>
+<p>先来完成图</p>
+<p><img src="http://v2.freep.cn/3tb_160411190340vm0s512293.jpg" alt="http://v2.freep.cn/3tb_160411190340vm0s512293.jpg"></p>
+<p><img src="http://v2.freep.cn/3tb_160411190344q3p6512293.jpg" alt="http://v2.freep.cn/3tb_160411190344q3p6512293.jpg"></p>
+<p><img src="http://v2.freep.cn/3tb_160411190350kxgi512293.jpg" alt="http://v2.freep.cn/3tb_160411190350kxgi512293.jpg"></p>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><h3 id="1-定位功能"><a href="#1-定位功能" class="headerlink" title="1.定位功能"></a>1.定位功能</h3><p>上次死在了处理定位回馈信息上，我错误的使用了getAddrStr()方法获得到了具体定位信息，由于天气Api只需要县级单位的名称，所以在转换过程中头疼了很久，因为有些是以区结尾，有些是县，还有镇，旗等等，困扰半天才想到难道百度没有一个直接返回县级单位名称的函数么，果然，翻一下Doc文档，找到了    getDistrict()：<br>获取区/县信息这个函数，这教训了我以后要好好查阅官方提供的Doc文档，不要做些无用功。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String str = location.getDistrict();</span><br><span class="line">String locate_result = str.substring(<span class="number">0</span>, str.length() - <span class="number">1</span>);</span><br><span class="line"><span class="comment">//show weather</span></span><br><span class="line">Intent intent=<span class="keyword">new</span> Intent(ChooseAreaActivity.<span class="keyword">this</span>,ShowWeatherActivity.class);</span><br><span class="line">intent.putExtra(<span class="string">"countyName"</span>,locate_result);</span><br><span class="line">startActivity(intent);</span><br><span class="line">finish();</span><br></pre></td></tr></table></figure>
+<p>获得县级单位后使用subString去掉最后一个字符，因为天气Api只接受去掉区县的名称</p>
+<h3 id="2-切换城市"><a href="#2-切换城市" class="headerlink" title="2.切换城市"></a>2.切换城市</h3><p>在Utility类中的saveWeatherInfoBasic方法中添加了一个标识符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">editor.putBoolean(<span class="string">"city_selected"</span>,<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<p>在ChooseAreaActivity中onCreate()中添加判断</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">       SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(<span class="keyword">this</span>);</span><br><span class="line"><span class="keyword">if</span>(sharedPreferences.getBoolean(<span class="string">"city_selected"</span>,<span class="keyword">false</span>))&#123;</span><br><span class="line">    Intent intent=<span class="keyword">new</span> Intent(ChooseAreaActivity.<span class="keyword">this</span>,ShowWeatherActivity.class);</span><br><span class="line">    startActivity(intent);</span><br><span class="line">    finish();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于是在侧滑栏上添加的切换城市功能，所以在对应点击事件中要将刚才的city_selected更新为false。</p>
+<h3 id="3-侧滑栏"><a href="#3-侧滑栏" class="headerlink" title="3.侧滑栏"></a>3.侧滑栏</h3><p>侧滑栏使用的SpecialCyCi提供的AndroidResideMenu这一开源代码</p>
+<ul>
+<li><a href="https://github.com/SpecialCyCi/AndroidResideMenu/" target="_blank" rel="external">传送门</a> </li>
+</ul>
+<p>这个代码代码量很少方便阅读，实际使用极其容易上手</p>
+<p>按照开发者提供的提示导入相应资源后在主活动中添加dispatchKeyEvent和setUpMenu方法即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setUpMenu</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// attach to current activity;</span></span><br><span class="line">    resideMenu = <span class="keyword">new</span> ResideMenu(<span class="keyword">this</span>);</span><br><span class="line">    resideMenu.setUse3D(<span class="keyword">true</span>);</span><br><span class="line">    resideMenu.setBackground(R.drawable.menu_background);</span><br><span class="line">    resideMenu.attachToActivity(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">//    resideMenu.setMenuListener(menuListener);</span></span><br><span class="line">    <span class="comment">//valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.</span></span><br><span class="line">    resideMenu.setScaleValue(<span class="number">0.9f</span>);</span><br><span class="line">    resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// create menu items;</span></span><br><span class="line">    itemHome = <span class="keyword">new</span> ResideMenuItem(<span class="keyword">this</span>, R.drawable.icon_home, <span class="string">"切换城市"</span>);</span><br><span class="line">    <span class="comment">//    itemProfile = new ResideMenuItem(this, R.drawable.icon_profile, "Profile");</span></span><br><span class="line">    <span class="comment">//    itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Calendar");</span></span><br><span class="line">    itemSettings = <span class="keyword">new</span> ResideMenuItem(<span class="keyword">this</span>, R.drawable.icon_settings, <span class="string">"设置"</span>);</span><br><span class="line"></span><br><span class="line">    itemHome.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">    itemSettings.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">//itemProfile.setOnClickListener(this);</span></span><br><span class="line">    <span class="comment">//    itemCalendar.setOnClickListener(this);</span></span><br><span class="line"></span><br><span class="line">    resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);</span><br><span class="line">    resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_LEFT);</span><br><span class="line">    <span class="comment">//resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// You can disable a direction by setting -&gt;</span></span><br><span class="line">    <span class="comment">// resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);</span></span><br><span class="line"></span><br><span class="line">    findViewById(R.id.left_menu).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">            resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchKeyEvent</span><span class="params">(KeyEvent event)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.dispatchKeyEvent(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-退出提示"><a href="#4-退出提示" class="headerlink" title="4.退出提示"></a>4.退出提示</h3><p>重写onBackPressed方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">        <span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBackPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mBackKeyPressedTimes == <span class="number">0</span>) &#123;</span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, <span class="string">"再按一次退出程序 "</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">        mBackKeyPressedTimes = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">new</span> Thread() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    mBackKeyPressedTimes = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.finish();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">super</span>.onBackPressed();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Things-to-do"><a href="#Things-to-do" class="headerlink" title="Things to do"></a>Things to do</h2><p>设置菜单具体内容、通知栏、桌面小部件、主界面背景优化</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/04/07/develop01-4/">
+        极简天气开发日记Day04 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/04/11/develop01-5/" data-title="极简天气开发日记Day05" data-url="http://yoursite.com/2016/04/11/develop01-5/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"awingcorsair"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By AwingCorsair. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/AwingCorsair" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
