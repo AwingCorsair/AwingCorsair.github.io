@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2016/4 | Blog</title>
+  <title>极简天气开发日记Day07 | Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -84,7 +84,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -230,94 +230,80 @@
 
         <!-- ============================ END Hero Image =========================== -->
       
-
-
-<section id="services">
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/04/25/develop01-7/">极简天气开发日记Day07</a></h4>
-                            
-                            <p><time datetime="2016-04-25T10:39:35.000Z"><a href="/2016/04/25/develop01-7/">2016-04-25</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/04/14/develop01-6/">极简天气开发日记Day06</a></h4>
-                            
-                            <p><time datetime="2016-04-14T11:17:47.000Z"><a href="/2016/04/14/develop01-6/">2016-04-14</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/04/11/develop01-5/">极简天气开发日记Day05</a></h4>
-                            
-                            <p><time datetime="2016-04-11T10:35:22.000Z"><a href="/2016/04/11/develop01-5/">2016-04-11</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/04/07/develop01-4/">极简天气开发日记Day04</a></h4>
-                            
-                            <p><time datetime="2016-04-07T13:45:35.000Z"><a href="/2016/04/07/develop01-4/">2016-04-07</a></time></p>
-                        </div>
-                    
-                        
-                            </div><div class="row boxes">
-                            
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/04/04/develop01-3/">极简天气开发日记Day03</a></h4>
-                            
-                            <p><time datetime="2016-04-04T07:55:40.000Z"><a href="/2016/04/04/develop01-3/">2016-04-04</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/04/02/develop01-2/">极简天气开发日记Day02</a></h4>
-                            
-                            <p><time datetime="2016-04-02T08:01:40.000Z"><a href="/2016/04/02/develop01-2/">2016-04-02</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/04/01/develop01-1/">极简天气开发日记Day01</a></h4>
-                            
-                            <p><time datetime="2016-04-01T10:39:11.000Z"><a href="/2016/04/01/develop01-1/">2016-04-01</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-04-25T10:39:35.000Z" itemprop="datePublished">
+          2016-04-25
+      </time>
+    
+    
+    | 
+    <a href='/tags/极简天气/'>极简天气</a>
+    
+    
+</span>
+                <h1>极简天气开发日记Day07</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="Things-have-done"><a href="#Things-have-done" class="headerlink" title="Things have done"></a>Things have done</h1><p>沉寂了几天没干活，突然感觉Material Design相当有意思，于是乎研究了几天的Material Design，效果还不错。把侧滑栏换了，完善了布局，加了反馈模块，总的来说比上一个版本成熟了很多。</p>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><h3 id="1-Material-Design"><a href="#1-Material-Design" class="headerlink" title="1.Material Design"></a>1.Material Design</h3><p>通读了Google关于Material Design的一些资料，发觉要完全按照这个规范实现布局也挺不容易的，在别的demo里实现过后感觉像toolbar对于这个App来说意义并不大，所以只按自己的需求进行了改动。</p>
+<p>首先，Gradle里加上这三句话</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.android.support:appcompat-v7:23.2.1'</span></span><br><span class="line">compile <span class="string">'com.android.support:design:23.2.1'</span></span><br><span class="line">compile <span class="string">'com.android.support:cardview-v7:23.2.1'</span></span><br></pre></td></tr></table></figure>
+<p>然后在布局文件里将原来布局用CoordinatorLayout包裹，在最下面添加FloatingActionButton如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.FloatingActionButton</span><br><span class="line">    android:id=<span class="string">"@+id/fab"</span></span><br><span class="line">    android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">    android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">    android:layout_gravity=<span class="string">"bottom|end"</span></span><br><span class="line">    android:layout_marginBottom=<span class="string">"@dimen/codelab_fab_margin_bottom"</span></span><br><span class="line">    android:layout_marginRight=<span class="string">"@dimen/codelab_fab_margin_right"</span></span><br><span class="line">    android:src=<span class="string">"@drawable/ic_favorite_24dp"</span></span><br><span class="line">    app:elevation=<span class="string">"6dp"</span></span><br><span class="line">    app:pressedTranslationZ=<span class="string">"12dp"</span></span><br><span class="line">    card_view:fabSize=<span class="string">"normal"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>同时，将原来三个未来天气预报用CardView包裹实现边框效果</p>
+<p>主界面实现状态栏和导航栏透明，还要在主布局文件里预留出状态栏空间，实现这一改动需要Android4.4版本及以上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">    getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>选择天气界面添加如下代码，同样在选择天气布局里预留状态栏空间</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，两个界面实现效果如下</p>
+<p><img src="http://d2.freep.cn/3tb_1604251907038o3m562817.jpg" alt="http://d2.freep.cn/3tb_1604251907038o3m562817.jpg"></p>
+<p><img src="http://d3.freep.cn/3tb_160425190703kect562817.jpg" alt="http://d3.freep.cn/3tb_160425190703kect562817.jpg"></p>
+<h2 id="2-新的侧滑栏"><a href="#2-新的侧滑栏" class="headerlink" title="2.新的侧滑栏"></a>2.新的侧滑栏</h2><p>原来的侧滑栏存在一个Bug，必须先通过点击按钮弹出侧滑栏后才能通过滑动弹出弹入，所以趁着这个机会一并换成原装的侧滑栏，在上面的修改基础上，主布局最外层用DrawerLayout嵌套，最后使用NavigationView绘制侧滑栏内容，使用了一个图片以及三个按钮，效果非常不错</p>
+<p><img src="http://d2.freep.cn/3tb_160425190705ik8m562817.jpg" alt="http://d2.freep.cn/3tb_160425190705ik8m562817.jpg"></p>
+<h2 id="3-关于和反馈模块"><a href="#3-关于和反馈模块" class="headerlink" title="3.关于和反馈模块"></a>3.关于和反馈模块</h2><p>使用AlertDialog非常轻松的构建出了让人满意的效果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showDialog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> AlertDialog.Builder(ShowWeatherActivity.<span class="keyword">this</span>).setTitle(<span class="string">"关于"</span>)</span><br><span class="line">            .setMessage(<span class="string">"感谢使用极简天气，欢迎到我的Github项目里Fork and Star^_^,如果想了解详细的开发过程，也欢迎来我的Blog逛一逛(｡・`ω´･)"</span>)</span><br><span class="line">            .setPositiveButton(<span class="string">"屈尊一逛"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                    Uri uri = Uri.parse(getString(R.string.Blog));   <span class="comment">//指定网址</span></span><br><span class="line">                    Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">                    intent.setAction(Intent.ACTION_VIEW);           <span class="comment">//指定Action</span></span><br><span class="line">                    intent.setData(uri);                            <span class="comment">//设置Uri</span></span><br><span class="line">                    ShowWeatherActivity.<span class="keyword">this</span>.startActivity(intent);        <span class="comment">//启动Activity</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).setNeutralButton(<span class="string">"围观Github"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">            Uri uri = Uri.parse(getString(R.string.Github));   <span class="comment">//指定网址</span></span><br><span class="line">            Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">            intent.setAction(Intent.ACTION_VIEW);           <span class="comment">//指定Action</span></span><br><span class="line">            intent.setData(uri);                            <span class="comment">//设置Uri</span></span><br><span class="line">            ShowWeatherActivity.<span class="keyword">this</span>.startActivity(intent);        <span class="comment">//启动Activity</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">            .show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>反馈模块使用的国外的一个服务商提供的jar包，轻量且迅速</p>
+<ul>
+<li><a href="http://www.android-feedback.com/" target="_blank" rel="external">Feedback</a> </li>
+</ul>
+<p>简单的注册后获取ApiKey，按照官方示例进行操作即可，非常简单，经测试反馈非常迅速地发送到了注册邮箱里，强烈推荐</p>
+<p><img src="http://d3.freep.cn/3tb_160425190701eyx3562817.jpg" alt="http://d3.freep.cn/3tb_160425190701eyx3562817.jpg"></p>
+<h2 id="Things-to-do？"><a href="#Things-to-do？" class="headerlink" title="Things to do？"></a>Things to do？</h2><p>经反馈貌似多次切换城市会出现OOM，把这个解决掉</p>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>Advance Amidst Turbulence</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/04/14/develop01-6/">
+        极简天气开发日记Day06 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/04/25/develop01-7/" data-title="极简天气开发日记Day07" data-url="http://yoursite.com/2016/04/25/develop01-7/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"awingcorsair"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
