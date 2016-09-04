@@ -251,9 +251,9 @@
         <div class="col-md-8 col-md-offset-2">
       		<h1 id="Things-have-done"><a href="#Things-have-done" class="headerlink" title="Things have done"></a>Things have done</h1><p>与上一版相比，这次完善了界面图标，完成了通过定位直接显示天气，添加了侧滑栏，设置了切换城市功能，程序入口也不再每次都是选择城市界面，而是直接显示上次退出前选择的城市，最后增加了一些提示信息。</p>
 <p>先来完成图</p>
-<p><img src="http://v2.freep.cn/3tb_160411190340vm0s512293.jpg" alt="http://v2.freep.cn/3tb_160411190340vm0s512293.jpg"></p>
-<p><img src="http://v2.freep.cn/3tb_160411190344q3p6512293.jpg" alt="http://v2.freep.cn/3tb_160411190344q3p6512293.jpg"></p>
-<p><img src="http://v2.freep.cn/3tb_160411190350kxgi512293.jpg" alt="http://v2.freep.cn/3tb_160411190350kxgi512293.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPga8CUa/11zC03.jpg" alt="http://pic.yupoo.com/333ddd/FPga8CUa/11zC03.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPgacl5n/10MkoG.jpg" alt="http://pic.yupoo.com/333ddd/FPgacl5n/10MkoG.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPgaeEIN/bLiQH.jpg" alt="http://pic.yupoo.com/333ddd/FPgaeEIN/bLiQH.jpg"></p>
 <h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><h3 id="1-定位功能"><a href="#1-定位功能" class="headerlink" title="1.定位功能"></a>1.定位功能</h3><p>上次死在了处理定位回馈信息上，我错误的使用了getAddrStr()方法获得到了具体定位信息，由于天气Api只需要县级单位的名称，所以在转换过程中头疼了很久，因为有些是以区结尾，有些是县，还有镇，旗等等，困扰半天才想到难道百度没有一个直接返回县级单位名称的函数么，果然，翻一下Doc文档，找到了    getDistrict()：<br>获取区/县信息这个函数，这教训了我以后要好好查阅官方提供的Doc文档，不要做些无用功。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String str = location.getDistrict();</span><br><span class="line">String locate_result = str.substring(<span class="number">0</span>, str.length() - <span class="number">1</span>);</span><br><span class="line"><span class="comment">//show weather</span></span><br><span class="line">Intent intent=<span class="keyword">new</span> Intent(ChooseAreaActivity.<span class="keyword">this</span>,ShowWeatherActivity.class);</span><br><span class="line">intent.putExtra(<span class="string">"countyName"</span>,locate_result);</span><br><span class="line">startActivity(intent);</span><br><span class="line">finish();</span><br></pre></td></tr></table></figure>
 <p>获得县级单位后使用subString去掉最后一个字符，因为天气Api只接受去掉区县的名称</p>

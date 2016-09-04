@@ -259,20 +259,20 @@
 <p>这里我遇到了一个问题，在模拟器里完美运行，但是真机却无法显示更新的背景，甚至有的机器在进入主界面直接崩溃，一开始我怀疑自己方法写的有问题，换了很多写法，用runOnUiThread之类的方法封装等等但是还是不行，最后怀疑是图片素材的问题，果然在裁剪图片素材分辨率到720*1080后终于可以显示出来了，原来Android对于图片分辨率有着很严的要求~</p>
 <p>但是，新的问题又来了</p>
 <h3 id="2-万恶的OOM"><a href="#2-万恶的OOM" class="headerlink" title="2.万恶的OOM"></a>2.万恶的OOM</h3><p>真机跑通了，却发现还有着很严重的问题，在多次切换城市后出现了OOM，进一步查看程序运行时占用的内存，SONY Z2和SAMSUNG S6 EDGE下一致的达到了120M的可怕数字，后来我又在在线测试平台上发起了测试，还好并不是所有的机型都会消耗如此多的内存</p>
-<p><img src="http://d3.freep.cn/3tb_1604141945189bq8562817.png" alt="http://d3.freep.cn/3tb_1604141945189bq8562817.png"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPg5CYFF/EoPfl.png" alt="http://pic.yupoo.com/333ddd/FPg5CYFF/EoPfl.png"></p>
 <p>但是问题还是需要解决的，在参考了别的博客后发现大致分为两种方法，一个是在合适时候回收图片占用内存，也就是重写Activity的onStop和onDestroy方法，添加以下代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(layout.getBackground() != <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">    Bitmap oldBitmap = ((BitmapDrawable) layout.getBackground()).getBitmap();</span><br><span class="line"></span><br><span class="line">    layout.setBackground(<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(oldBitmap != <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">        oldBitmap.recycle();</span><br><span class="line"></span><br><span class="line">        oldBitmap = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Other code.</span></span><br><span class="line"></span><br><span class="line">System.gc();</span><br></pre></td></tr></table></figure>
 <p>这里的System.gc()在查阅后发现对于Java和Android调用这句话的结局并不一定相同，Java中只是通知JVM程序员希望进行一次GC，但是并不一定会进行，而Android的虚拟机dalvik则会执行回收</p>
 <p>在重写onDestroy后真机运行后内存从120M降到了80M，如果再重写onStop方法后内存再次降到40M，果然是图片缓存的锅，当然，onStop重写后会导致失去焦点后再次调用时背景消失，所以只能留onDestroy</p>
 <p>另一种方法是通过BitmapFactory.decodeStream方法，创建出一个bitmap，再将其设为ImageView的 source，实际在使用这种方法时候，为了对比效果，我在DDMS中分别测试了这两种方法以及不使用内存优化方法的内存占用，发现比较奇怪的结果</p>
-<p>图一：不使用优化<br><img src="http://d3.freep.cn/3tb_160414194518lkfb562817.png" alt="http://d3.freep.cn/3tb_160414194518lkfb562817.png"></p>
-<p>图二：重写onDestroy<br><img src="http://d2.freep.cn/3tb_160414194518fk0l562817.png" alt="http://d2.freep.cn/3tb_160414194518fk0l562817.png"></p>
-<p>图三：BitmapFactory<br><img src="http://d2.freep.cn/3tb_160414194518umwj562817.png" alt="http://d2.freep.cn/3tb_160414194518umwj562817.png"></p>
+<p>图一：不使用优化<br><img src="http://pic.yupoo.com/333ddd/FPg5Ddhc/JRQcF.png" alt="http://pic.yupoo.com/333ddd/FPg5Ddhc/JRQcF.png"></p>
+<p>图二：重写onDestroy<br><img src="http://pic.yupoo.com/333ddd/FPg5ywH0/fJbtU.png" alt="http://pic.yupoo.com/333ddd/FPg5ywH0/fJbtU.png"></p>
+<p>图三：BitmapFactory<br><img src="http://pic.yupoo.com/333ddd/FPg5ywH0/fJbtU.png" alt="http://pic.yupoo.com/333ddd/FPg5ywH0/fJbtU.png"></p>
 <p>这个结果有点意思啊，说好的decodeStream减少内存占用呢</p>
 <ul>
 <li><a href="http://zwkufo.blog.163.com/blog/static/2588251201312864034812/" target="_blank" rel="external">优化方法博客地址</a> </li>
 </ul>
-<p>最后，附上优化过后的在线测试结果<br><img src="http://d2.freep.cn/3tb_160414200823n62h562817.png" alt="http://d2.freep.cn/3tb_160414200823n62h562817.png"></p>
+<p>最后，附上优化过后的在线测试结果<br><img src="http://pic.yupoo.com/333ddd/FPg5ywH0/fJbtU.png" alt="http://pic.yupoo.com/333ddd/FPg5ywH0/fJbtU.png"></p>
 <p>效果还不错，真机多次切换城市也没有出现OOM情况了</p>
 <ul>
 <li><a href="http://www.testin.cn/site/index/" target="_blank" rel="external">云测平台</a> </li>
