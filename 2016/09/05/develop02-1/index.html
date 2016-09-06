@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>极简天气开发日记Day07 | Blog</title>
+  <title>极简密码开发日记Day01 | Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -235,60 +235,68 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-04-25T10:39:35.000Z" itemprop="datePublished">
-          2016-04-25
+      <time datetime="2016-09-05T13:49:24.000Z" itemprop="datePublished">
+          2016-09-05
       </time>
     
     
     | 
-    <a href='/tags/极简天气/'>极简天气</a>
+    <a href='/tags/极简密码/'>极简密码</a>
     
     
 </span>
-                <h1>极简天气开发日记Day07</h1>
+                <h1>极简密码开发日记Day01</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="Things-have-done"><a href="#Things-have-done" class="headerlink" title="Things have done"></a>Things have done</h1><p>沉寂了几天没干活，突然感觉Material Design相当有意思，于是乎研究了几天的Material Design，效果还不错。把侧滑栏换了，完善了布局，加了反馈模块，总的来说比上一个版本成熟了很多。</p>
-<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><h3 id="1-Material-Design"><a href="#1-Material-Design" class="headerlink" title="1.Material Design"></a>1.Material Design</h3><p>通读了Google关于Material Design的一些资料，发觉要完全按照这个规范实现布局也挺不容易的，在别的demo里实现过后感觉像toolbar对于这个App来说意义并不大，所以只按自己的需求进行了改动。</p>
-<p>首先，Gradle里加上这三句话</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.android.support:appcompat-v7:23.2.1'</span></span><br><span class="line">compile <span class="string">'com.android.support:design:23.2.1'</span></span><br><span class="line">compile <span class="string">'com.android.support:cardview-v7:23.2.1'</span></span><br></pre></td></tr></table></figure>
-<p>然后在布局文件里将原来布局用CoordinatorLayout包裹，在最下面添加FloatingActionButton如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.FloatingActionButton</span><br><span class="line">    android:id=<span class="string">"@+id/fab"</span></span><br><span class="line">    android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">    android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">    android:layout_gravity=<span class="string">"bottom|end"</span></span><br><span class="line">    android:layout_marginBottom=<span class="string">"@dimen/codelab_fab_margin_bottom"</span></span><br><span class="line">    android:layout_marginRight=<span class="string">"@dimen/codelab_fab_margin_right"</span></span><br><span class="line">    android:src=<span class="string">"@drawable/ic_favorite_24dp"</span></span><br><span class="line">    app:elevation=<span class="string">"6dp"</span></span><br><span class="line">    app:pressedTranslationZ=<span class="string">"12dp"</span></span><br><span class="line">    card_view:fabSize=<span class="string">"normal"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
-<p>同时，将原来三个未来天气预报用CardView包裹实现边框效果</p>
-<p>主界面实现状态栏和导航栏透明，还要在主布局文件里预留出状态栏空间，实现这一改动需要Android4.4版本及以上</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">    getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>选择天气界面添加如下代码，同样在选择天气布局里预留状态栏空间</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-新的侧滑栏"><a href="#2-新的侧滑栏" class="headerlink" title="2.新的侧滑栏"></a>2.新的侧滑栏</h2><p>原来的侧滑栏存在一个Bug，必须先通过点击按钮弹出侧滑栏后才能通过滑动弹出弹入，所以趁着这个机会一并换成原装的侧滑栏，在上面的修改基础上，主布局最外层用DrawerLayout嵌套，最后使用NavigationView绘制侧滑栏内容，使用了一个图片以及三个按钮，效果非常不错</p>
-<p><img src="http://pic.yupoo.com/333ddd/FPg5CTzX/ClEBD.jpg" alt="http://pic.yupoo.com/333ddd/FPg5CTzX/ClEBD.jpg"></p>
-<h2 id="3-关于和反馈模块"><a href="#3-关于和反馈模块" class="headerlink" title="3.关于和反馈模块"></a>3.关于和反馈模块</h2><p>使用AlertDialog非常轻松的构建出了让人满意的效果</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showDialog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> AlertDialog.Builder(ShowWeatherActivity.<span class="keyword">this</span>).setTitle(<span class="string">"关于"</span>)</span><br><span class="line">            .setMessage(<span class="string">"感谢使用极简天气，欢迎到我的Github项目里Fork and Star^_^,如果想了解详细的开发过程，也欢迎来我的Blog逛一逛(｡・`ω´･)"</span>)</span><br><span class="line">            .setPositiveButton(<span class="string">"屈尊一逛"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                    Uri uri = Uri.parse(getString(R.string.Blog));   <span class="comment">//指定网址</span></span><br><span class="line">                    Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">                    intent.setAction(Intent.ACTION_VIEW);           <span class="comment">//指定Action</span></span><br><span class="line">                    intent.setData(uri);                            <span class="comment">//设置Uri</span></span><br><span class="line">                    ShowWeatherActivity.<span class="keyword">this</span>.startActivity(intent);        <span class="comment">//启动Activity</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).setNeutralButton(<span class="string">"围观Github"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">            Uri uri = Uri.parse(getString(R.string.Github));   <span class="comment">//指定网址</span></span><br><span class="line">            Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">            intent.setAction(Intent.ACTION_VIEW);           <span class="comment">//指定Action</span></span><br><span class="line">            intent.setData(uri);                            <span class="comment">//设置Uri</span></span><br><span class="line">            ShowWeatherActivity.<span class="keyword">this</span>.startActivity(intent);        <span class="comment">//启动Activity</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">            .show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>反馈模块使用的国外的一个服务商提供的jar包，轻量且迅速</p>
-<ul>
-<li><a href="http://www.android-feedback.com/" target="_blank" rel="external">Feedback</a> </li>
+      		<h1 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h1><p>沉寂了一段时间，正式开始这款App的开发，上一款应用SimpleWeather由于Api服务提供商免费接口基础城市信息的缺少，虽然能用但是只能精确到市级城市所以无论如何都不敢发布到应用市场给用户使用。这次的极简密码一定要发布到Google Play里，要做一个能拿的出手的App来。</p>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ul>
+<li>密码储存及分类</li>
+<li>方便的数据输入和输出</li>
+<li>自动填充</li>
+<li>密码生成</li>
+<li>密码安全</li>
+<li>简洁明了界面</li>
 </ul>
-<p>简单的注册后获取ApiKey，按照官方示例进行操作即可，非常简单，经测试反馈非常迅速地发送到了注册邮箱里，强烈推荐</p>
-<p><img src="http://pic.yupoo.com/333ddd/FPg6kORH/egJ0t.jpg" alt="http://pic.yupoo.com/333ddd/FPg6kORH/egJ0t.jpg"></p>
-<h2 id="Things-to-do？"><a href="#Things-to-do？" class="headerlink" title="Things to do？"></a>Things to do？</h2><p>经反馈貌似多次切换城市会出现OOM，把这个解决掉</p>
+<h2 id="设计借鉴"><a href="#设计借鉴" class="headerlink" title="设计借鉴"></a>设计借鉴</h2><p>与其闭门造车不如集思广益，先在Google Play搜索Password相关App，在搜索到的使用广泛的下面几款中选择了四款分析</p>
+<p><img src="http://pic.yupoo.com/333ddd/FPrMeLzj/3SOmI.png" alt="http://pic.yupoo.com/333ddd/FPrMeLzj/3SOmI.png"></p>
+<p>在使用了这几款软件一段时间后发现差异还是比较明显的</p>
+<h3 id="1-引导页"><a href="#1-引导页" class="headerlink" title="1.引导页"></a>1.引导页</h3><p>首先，这四款软件都使用了引导页，引导页内简单描述了本软件的优点以及简单的使用方式</p>
+<h3 id="2-主密码"><a href="#2-主密码" class="headerlink" title="2.主密码"></a>2.主密码</h3><p>在注册完邮箱账号 LastPass和Dashlane选择了直接使用刚才注册完的账户密码作为解锁密码，而1Password和Keeper则需要再次设置一个主密码来解锁应用</p>
+<h3 id="3-屏幕截图"><a href="#3-屏幕截图" class="headerlink" title="3.屏幕截图"></a>3.屏幕截图</h3><p>有一个很有意思的细节差异在屏幕截图上，1Password和LastPass禁止获取屏幕截图，说实话还是第一次遇到这样的App，应该是在onCreate()方法中加了            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);<br>这行代码，我认为这么做很有必要杜绝了其他软件获取当前屏幕截图，给用户一种很安全的感觉</p>
+<h3 id="4-主界面"><a href="#4-主界面" class="headerlink" title="4.主界面"></a>4.主界面</h3><p>这四款软件不约而同地都采用了Material Design，风格极其相似，以下分别为1Password，Keeper，LastPass，Dashlane<br><img src="http://pic.yupoo.com/333ddd/FPwshCm5/dHhoz.jpg" alt="http://pic.yupoo.com/333ddd/FPwshCm5/dHhoz.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwskuma/x7uth.jpg" alt="http://pic.yupoo.com/333ddd/FPwskuma/x7uth.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwskK8E/9jo2T.jpg" alt="http://pic.yupoo.com/333ddd/FPwskK8E/9jo2T.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwshPwL/YxxT1.jpg" alt="http://pic.yupoo.com/333ddd/FPwshPwL/YxxT1.jpg"></p>
+<h3 id="5-密码分类"><a href="#5-密码分类" class="headerlink" title="5.密码分类"></a>5.密码分类</h3><p>由上述几张图片可以看出1Password分类比较细致，LastPass则注重网站密码，类别非常少。Keeper与LastPass相似，不过看上去更加简陋，单纯的网站密码。Dashlane同样以网站密码为主，不过与前面两个相比预先给出了一些常用网站供用户选择，添加完成后记录前面会显示网站Logo，不过仅限提供的之内；而LastPass则是用户输入完成后自动联网获取网站Logo并显示出来。下图为Keeper和Dashlane的添加密码界面。</p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwskp0h/Z9pni.jpg" alt="http://pic.yupoo.com/333ddd/FPwskp0h/Z9pni.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwshPOR/I6K3X.jpg" alt="http://pic.yupoo.com/333ddd/FPwshPOR/I6K3X.jpg"></p>
+<h3 id="6-侧滑栏"><a href="#6-侧滑栏" class="headerlink" title="6.侧滑栏"></a>6.侧滑栏</h3><p>1Password的侧滑栏简洁的像张白纸一样，给人一种很简陋的感觉，配合主界面的简洁让人感觉这款软件只花了几天时间就完成了。Keeper侧滑栏大气明了。LastPass侧滑栏非常差，字体大小和间距很不科学，堪称败笔。Dashlane侧滑栏非常优秀，每一项都是必要的，同时分类做的非常好。由于1Password和LastPass无法截图所以下面只给出Keeper和Dashlane的侧滑栏。</p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwsiw1O/uMGPW.jpg" alt="http://pic.yupoo.com/333ddd/FPwsiw1O/uMGPW.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwsii5x/bStQs.jpg" alt="http://pic.yupoo.com/333ddd/FPwsii5x/bStQs.jpg"></p>
+<h3 id="7-其他细节"><a href="#7-其他细节" class="headerlink" title="7.其他细节"></a>7.其他细节</h3><p>在四款软件里都提供了密码生成器，方便用户生成随机密码。</p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwskp0h/Z9pni.jpg" alt="http://pic.yupoo.com/333ddd/FPwskp0h/Z9pni.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwskEVm/X6QCE.jpg" alt="http://pic.yupoo.com/333ddd/FPwskEVm/X6QCE.jpg"></p>
+<p>1Password在失去焦点后会启动加密，必须重新解密才能操作，安全感爆表。其他三款则不会，我认为应该学习1Password的做法进入onPause()便加锁。</p>
+<p>Dashlane的一点让人感觉很麻烦的在于它强制性使用强密码来解锁，下图为要求</p>
+<p><img src="http://pic.yupoo.com/333ddd/FPwsk4bL/DvnEz.jpg" alt="http://pic.yupoo.com/333ddd/FPwsk4bL/DvnEz.jpg"></p>
+<p>这应该是一条比较有争议的设置，一方面强制强密码增强了安全性，另一方面则加深了用户操作难度。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过对四款软件的简单对比，我的首选应用为Dashlane，其次LastPass，所以下面开发极简密码时会主要借鉴这两款应用的设计。当然，这几款应用还有很多细节没有列举出来，在以后开发中慢慢展开吧。</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/09/05/develop02-1/" style="float: left;">
-        ← 极简密码开发日记Day01
-    </a>
     
-    
-    <a class="pull-right" href="/2016/04/14/develop01-6/">
-        极简天气开发日记Day06 →
+    <a class="pull-right" href="/2016/04/25/develop01-7/">
+        极简天气开发日记Day07 →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2016/04/25/develop01-7/" data-title="极简天气开发日记Day07" data-url="http://yoursite.com/2016/04/25/develop01-7/"></div>
+<div class="ds-thread" data-thread-key="2016/09/05/develop02-1/" data-title="极简密码开发日记Day01" data-url="http://yoursite.com/2016/09/05/develop02-1/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"awingcorsair"};
 (function() {
