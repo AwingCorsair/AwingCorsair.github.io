@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>极简天气开发日记Day02 | Blog</title>
+  <title>极简密码开发日记Day02 | Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -235,50 +235,59 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-04-02T08:01:40.000Z" itemprop="datePublished">
-          2016-04-02
+      <time datetime="2016-09-15T14:10:00.000Z" itemprop="datePublished">
+          2016-09-15
       </time>
     
     
     | 
-    <a href='/tags/极简天气/'>极简天气</a>
+    <a href='/tags/极简密码/'>极简密码</a>
     
     
 </span>
-                <h1>极简天气开发日记Day02</h1>
+                <h1>极简密码开发日记Day02</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="Things-to-do"><a href="#Things-to-do" class="headerlink" title="Things to do"></a>Things to do</h1><p>第一天简单的构思了App的界面和功能，初步画出了主界面，今天正式的开始代码的编译。<br>首先，在主包下新建以下几个包</p>
-<pre><code>*activity：存放活动相关代码
-* db：    存放数据库相关代码
-* model：存放模型相关代码
-* service：存放服务相关代码
-* util：存放工具相关代码
-* location：存放定位相关代码
-</code></pre><p>程序入口打算使用ListView展示省市县列表供用户手动选择，同时使用百度提供的<a href="http://lbsyun.baidu.com/index.php?title=android-locsdk" target="_blank" rel="external">Android定位SDK</a>来完成定位功能，如果用户设备未开启GPS和数据流量而导致定位失败，则弹出Toast提示用户手动选择城市。</p>
-<p>由于在和风API中未找到方便的省市县信息接口，所以选择了<a href="http://www.weather.com.cn/data/list3/city.xml" target="_blank" rel="external">中国天气</a>提供的省市县GSON信息（第一行代码中所使用的）</p>
-<h2 id="项目进度"><a href="#项目进度" class="headerlink" title="项目进度"></a>项目进度</h2><p>完成了数据库操作的封装已经基础类的构造。</p>
-<h2 id="明日任务"><a href="#明日任务" class="headerlink" title="明日任务"></a>明日任务</h2><p>完成省市县列表的编写以及GPS定位相关代码</p>
+      		<h1 id="Things-have-done"><a href="#Things-have-done" class="headerlink" title="Things have done"></a>Things have done</h1><p>花了两天时间画了下各个界面，并按照画的界面一点点实现，技术方面这次尝试了RxJava，RxAndroid，RxBinding，ButterKnife这几个开源库，算是边学边用，有两篇感觉非常不错的教程，分别是</p>
+<ul>
+<li><a href="[http://gank.io/post/560e15be2dca930e00da1083/">给 Android 开发者的 RxJava 详解</a></li>
+<li><a href="[http://www.jianshu.com/p/6d1ef9f43cdc/">详细解析RxAndroid的使用方式</a></li>
+</ul>
+<h2 id="具体实现："><a href="#具体实现：" class="headerlink" title="具体实现："></a>具体实现：</h2><h3 id="1-侧滑栏"><a href="#1-侧滑栏" class="headerlink" title="1.侧滑栏"></a>1.侧滑栏</h3><p>使用原生NavigationView简单粗暴完成</p>
+<p><img src="http://pic.yupoo.com/333ddd/FQYpz6Fm/35ksN.jpg" alt="http://pic.yupoo.com/333ddd/FQYpz6Fm/35ksN.jpg"></p>
+<h3 id="2-添加密码界面"><a href="#2-添加密码界面" class="headerlink" title="2.添加密码界面"></a>2.添加密码界面</h3><p>首先来个初步完成图</p>
+<p><img src="http://pic.yupoo.com/333ddd/FQYpyWnj/niyXu.jpg" alt="http://pic.yupoo.com/333ddd/FQYpyWnj/niyXu.jpg"></p>
+<p>四个TextView外面嵌套TextInputLayout来实现Material Design风格的动画特效，其中的密码TextView由于要实现显示和隐藏密码的功能，使用了开源库<a href="https://github.com/scottyab/showhidepasswordedittext" target="_blank" rel="external">showhidepasswordedittext</a>，有意思的是在这个开源库的简介里作者着重提示了这个功能在Android Support Library, revision 24.2.0 (August 2016) 这个版本中已经原生提供了。</p>
+<p>填充完的界面如下：</p>
+<p><img src="http://pic.yupoo.com/333ddd/FQYpyPxm/122Cfl.jpg" alt="http://pic.yupoo.com/333ddd/FQYpyPxm/122Cfl.jpg"></p>
+<h3 id="3-选择网站功能"><a href="#3-选择网站功能" class="headerlink" title="3.选择网站功能"></a>3.选择网站功能</h3><p>虽然这个严格来说属于上一界面，但是由于我实现的时候花费了不少精力并且遇到了很多问题所以着重写一下。</p>
+<p>首先，点击右上角Toolbar中的按钮后会通过onOptionsItemSelected调用方法创建一个AlertDialog</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(AddActivity.<span class="keyword">this</span>);</span><br><span class="line">dialog = builder</span><br><span class="line">        .setView(R.layout.alert_add)</span><br><span class="line">        .create();</span><br><span class="line">dialog.show();</span><br></pre></td></tr></table></figure>
+<p>AlertDialog直接载入布局文件，在布局中我将几个主流网站logo排好版，对ImageView进行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:clickable=<span class="string">"true"</span></span><br><span class="line">android:onClick=<span class="string">"onWebsiteSelected"</span></span><br></pre></td></tr></table></figure>
+<p>然后在Activity中添加这个方法，简单地使用switch/case对传入的View.getId()进行判断，然后设置网站TextView的文字，如下图。</p>
+<p><img src="http://pic.yupoo.com/333ddd/FQYpr4Yg/iaWkA.jpg" alt="http://pic.yupoo.com/333ddd/FQYpr4Yg/iaWkA.jpg"></p>
+<p>可以看出排版还有些问题，但是我认为已经比我开始使用的方法好很多，开始我是用如下的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SimpleImageArrayAdapter adapter = <span class="keyword">new</span> SimpleImageArrayAdapter(AddActivity.<span class="keyword">this</span>,</span><br><span class="line">        <span class="keyword">new</span> Integer[]&#123;R.drawable.logo_baidu, R.drawable.logo_bilibili, R.drawable.logo_facebook, R.drawable.logo_github, R.drawable.logo_google&#125;);</span><br><span class="line">builder.setAdapter(adapter, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">        Toast.makeText(AddActivity.<span class="keyword">this</span>, <span class="string">" "</span> + which, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">builder.show();</span><br></pre></td></tr></table></figure>
+<p>使用SimpleImageArrayAdapter继承ArrayAdapter来传入多个图片，但是这么做AlertDialog的显示是个很大问题，图片压缩在左边，右边是大片空白，网站图片单纯的上下排放，没有滑动栏，如果静态设置AlertDialog的长宽又担心适配问题，最后放弃了这种做法。</p>
+<p>但是现在的效果仍然距离我想要的效果很远，首先常用网站较多，应该点击按钮后显示一级菜单即网站分类，比如社交网站、技术网站之类，二级菜单显示具体网站，这样应该是一种比较合理的设计。</p>
+<h2 id="Things-to-do"><a href="#Things-to-do" class="headerlink" title="Things to do"></a>Things to do</h2><p>添加密码界面增加随机密码生成器，完成数据库的编写，完成主界面</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/04/04/develop01-3/" style="float: left;">
-        ← 极简天气开发日记Day03
-    </a>
     
-    
-    <a class="pull-right" href="/2016/04/01/develop01-1/">
-        极简天气开发日记Day01 →
+    <a class="pull-right" href="/2016/09/05/develop02-1/">
+        极简密码开发日记Day01 →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2016/04/02/develop01-2/" data-title="极简天气开发日记Day02" data-url="http://yoursite.com/2016/04/02/develop01-2/"></div>
+<div class="ds-thread" data-thread-key="2016/09/15/develop02-2/" data-title="极简密码开发日记Day02" data-url="http://yoursite.com/2016/09/15/develop02-2/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"awingcorsair"};
 (function() {
