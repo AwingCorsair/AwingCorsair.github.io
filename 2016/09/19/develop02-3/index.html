@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>极简天气开发日记Day02 | Blog</title>
+  <title>极简密码开发日记Day03 | Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -235,50 +235,54 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-04-02T08:01:40.000Z" itemprop="datePublished">
-          2016-04-02
+      <time datetime="2016-09-19T15:20:24.000Z" itemprop="datePublished">
+          2016-09-19
       </time>
     
     
     | 
-    <a href='/tags/极简天气/'>极简天气</a>
+    <a href='/tags/极简密码/'>极简密码</a>
     
     
 </span>
-                <h1>极简天气开发日记Day02</h1>
+                <h1>极简密码开发日记Day03</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="Things-to-do"><a href="#Things-to-do" class="headerlink" title="Things to do"></a>Things to do</h1><p>第一天简单的构思了App的界面和功能，初步画出了主界面，今天正式的开始代码的编译。<br>首先，在主包下新建以下几个包</p>
-<pre><code>*activity：存放活动相关代码
-* db：    存放数据库相关代码
-* model：存放模型相关代码
-* service：存放服务相关代码
-* util：存放工具相关代码
-* location：存放定位相关代码
-</code></pre><p>程序入口打算使用ListView展示省市县列表供用户手动选择，同时使用百度提供的<a href="http://lbsyun.baidu.com/index.php?title=android-locsdk" target="_blank" rel="external">Android定位SDK</a>来完成定位功能，如果用户设备未开启GPS和数据流量而导致定位失败，则弹出Toast提示用户手动选择城市。</p>
-<p>由于在和风API中未找到方便的省市县信息接口，所以选择了<a href="http://www.weather.com.cn/data/list3/city.xml" target="_blank" rel="external">中国天气</a>提供的省市县GSON信息（第一行代码中所使用的）</p>
-<h2 id="项目进度"><a href="#项目进度" class="headerlink" title="项目进度"></a>项目进度</h2><p>完成了数据库操作的封装已经基础类的构造。</p>
-<h2 id="明日任务"><a href="#明日任务" class="headerlink" title="明日任务"></a>明日任务</h2><p>完成省市县列表的编写以及GPS定位相关代码</p>
+      		<h1 id="Things-have-done"><a href="#Things-have-done" class="headerlink" title="Things have done"></a>Things have done</h1><p>花了一天时间搞定了随机密码生成器、主界面、数据库，然而又花了一天时间解决Bug….不过借此机会学会了很多东西只能说这波不亏</p>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="1-随机密码生成器"><a href="#1-随机密码生成器" class="headerlink" title="1.随机密码生成器"></a>1.随机密码生成器</h3><p>Google到了很多方法，选择了一个广为认可并且非常方便的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> String AB = <span class="string">"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&amp;*()_+-=?."</span>;</span><br><span class="line"><span class="keyword">static</span> SecureRandom rnd = <span class="keyword">new</span> SecureRandom();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">randomString</span><span class="params">(<span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder(len);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        sb.append(AB.charAt(rnd.nextInt(AB.length())));</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用SecureRandom()函数在事先给定的密码字符集中随机获得一个字符，循环一定次数得到密码串。</p>
+<p>方法传入的密码长度是从SeekBar中获得的，SeekBar我使用的是<a href="https://github.com/techery/progresshint" target="_blank" rel="external">ProgressHint</a>这一开源库，通过</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">seekBar.setMax(<span class="number">16</span>);</span><br><span class="line">seekBar.setProgress(<span class="number">6</span>);</span><br></pre></td></tr></table></figure>
+<p>这两行代码实现设置最大长度为16，初始长度6，最终实现的效果如下图，拖动SeekBar设置密码长度，点击按钮生成密码并设置到Edittext上</p>
+<p><img src="http://pic.yupoo.com/333ddd/FRAlz931/ZN4kh.jpg" alt="http://pic.yupoo.com/333ddd/FRAlz931/ZN4kh.jpg"></p>
+<h3 id="2-数据库"><a href="#2-数据库" class="headerlink" title="2.数据库"></a>2.数据库</h3><p>作为一个密码管理软件，如果数据的存放不够安全的话简直无法想象，所以在着手写数据库时我就打算找一个安全的数据库，最终选择了<a href="https://www.zetetic.net/sqlcipher/" target="_blank" rel="external">SqlCipher</a>，一个对SqlLite进行扩展的开源库，AES-256加密方法数据库完全加密，在使用过程中没有什么难题，用法和普通SqlLite基本完全相同，只不过在SQLiteDatabase db = this.getWritableDatabase();方法中要加上一个密码作为打开和写入的唯一凭证，同时在载入数据库时候要加一局SQLiteDatabase.loadLibs(this);</p>
+<p>数据库的操作基本大同小异，我新建了一个DatabaseHelper类封装数据库创建、升级、删除以及增删改查各项操作，刚开始在getRecordCounts()方法中犯了一个错误，cursor.close();之后我又return cursor.getCount();很低级的错误。</p>
+<h3 id="3-主界面"><a href="#3-主界面" class="headerlink" title="3.主界面"></a>3.主界面</h3><p>本来想在主界面显示记录简略信息，点击后打开详情界面，但是偶然看到了一个很酷炫的开源库<a href="https://github.com/Ramotion/folding-cell-android" target="_blank" rel="external">FoldingCell</a> 下面是官方提供的效果图</p>
+<p><img src="https://github.com/Ramotion/folding-cell-android/raw/master/folding_cell_preview.gif" alt="https://github.com/Ramotion/folding-cell-android/raw/master/folding_cell_preview.gif"></p>
+<p>我实现的初步效果图如下</p>
+<p><img src="http://pic.yupoo.com/333ddd/FRAlz57j/njA0T.jpg" alt="http://pic.yupoo.com/333ddd/FRAlz57j/njA0T.jpg"></p>
+<p><img src="http://pic.yupoo.com/333ddd/FRAlzcUL/7pnCk.jpg" alt="http://pic.yupoo.com/333ddd/FRAlzcUL/7pnCk.jpg"></p>
+<p>本来折叠状态下控件也使用纯色作为背景，后来发现可以用xml文件方便地描绘边框</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;shape xmlns:android="http://schemas.android.com/apk/res/android" &gt;</span><br><span class="line"></span><br><span class="line">    &lt;solid android:color="#FAFAFA" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;stroke</span><br><span class="line">        android:width="1dp"</span><br><span class="line">        android:color="#6D4C41" /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;padding</span><br><span class="line">        android:bottom="1dp"</span><br><span class="line">        android:left="0.5dp"</span><br><span class="line">        android:right="0.5dp"</span><br><span class="line">        android:top="1dp" /&gt;</span><br><span class="line">    &lt;corners</span><br><span class="line">        android:bottomLeftRadius="5dp"</span><br><span class="line">        android:bottomRightRadius="5dp"</span><br><span class="line">        android:topLeftRadius="5dp"</span><br><span class="line">        android:topRightRadius="5dp" /&gt;</span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
+<p>在使用这个控件时发现一个问题，因为我使用的是ListView，新建一个RecordAdapter注入控件，但是实际使用中每六个控件会显示同样的动画效果，即展开第一个控件后第六个也会自动展开，谷歌后貌似是ListView的回收机制与这个库之间的Bug，在开源库里Issue中也有很多人提出这个问题，需要添加fc.fold(true);这一行代码避免这一Bug，不过这样在控件滑出屏幕后会自动折叠。</p>
+<h2 id="Things-to-do"><a href="#Things-to-do" class="headerlink" title="Things to do"></a>Things to do</h2><p>引导页、解锁功能</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/04/04/develop01-3/" style="float: left;">
-        ← 极简天气开发日记Day03
-    </a>
     
-    
-    <a class="pull-right" href="/2016/04/01/develop01-1/">
-        极简天气开发日记Day01 →
+    <a class="pull-right" href="/2016/09/15/develop02-2/">
+        极简密码开发日记Day02 →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2016/04/02/develop01-2/" data-title="极简天气开发日记Day02" data-url="http://yoursite.com/2016/04/02/develop01-2/"></div>
+<div class="ds-thread" data-thread-key="2016/09/19/develop02-3/" data-title="极简密码开发日记Day03" data-url="http://yoursite.com/2016/09/19/develop02-3/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"awingcorsair"};
 (function() {
